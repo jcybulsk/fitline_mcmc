@@ -1,14 +1,3 @@
-; This function handles the probability (likelihood calculation)
-FUNCTION pi, x, y, a, thesig
-	npts = n_elements(x)
-	gau = thegaussian(x,a)
-	tot=0.0
-	for i=0d,npts-1 do begin
-		tot = tot + alog10(exp(-((y[i]-gau[i])^2)/0.001*thesig^2))
-	endfor
-	return, tot
-END
-
 ; With this function, we decide what the next step for each parameter (if taken) will be
 FUNCTION stepcalc, a, b0sig, b1sig, b2sig, b3sig, a0lims, a1lims, a2lims, a3lims
 	b = dblarr(4)
